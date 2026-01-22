@@ -17,6 +17,7 @@ $additionalCSS = ['alimentacion.css'];
 <?php include '../../app/views/layouts/header.php'; ?>
 
 <div class="content-wrapper">
+    <div class="content-wrapper" style="margin-left: 250px; padding: 100px 40px; background: #f8f9fa;"></div>
     <div class="page-header">
         <h1>Alimentación Saludable 🍎</h1>
         <p>Descubre recetas nutritivas y deliciosas para tu día a día</p>

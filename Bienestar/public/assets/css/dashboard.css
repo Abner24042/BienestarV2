@@ -65,31 +65,36 @@ body {
 .user-menu {
     display: none;
     position: absolute;
-    top: 100%;
+    top: calc(100% + 5px);
     right: 0;
-    margin-top: 10px;
     background: white;
-    box-shadow: var(--shadow-lg);
-    border-radius: var(--radius-md);
-    min-width: 180px;
-    padding: 10px 0;
-}
-
-.header-user:hover .user-menu {
-    display: block;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    min-width: 200px;
+    padding: 8px 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 1000;
 }
 
 .user-menu a {
     display: block;
-    padding: 10px 20px;
-    color: var(--color-text-primary);
+    padding: 12px 20px;
+    color: #333;
     text-decoration: none;
-    transition: background var(--transition-fast);
+    transition: background 0.2s ease;
+    font-size: 0.95rem;
 }
 
 .user-menu a:hover {
-    background-color: var(--color-bg-secondary);
+    background: #f5f5f5;
 }
+
+/* ELIMINA ESTA REGLA SI EXISTE */
+/* .header-user:hover .user-menu {
+    display: block;
+} */
 
 /* Sidebar */
 .sidebar {

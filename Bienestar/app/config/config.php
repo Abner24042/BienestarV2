@@ -19,7 +19,7 @@ define('APP_ENV', $_ENV['APP_ENV'] ?? 'development');
 define('APP_DEBUG', ($_ENV['APP_DEBUG'] ?? 'true') === 'true');
 
 // URLs
-define('BASE_URL', $_ENV['BASE_URL'] ?? 'http://localhost/Bienestar/public');
+define('BASE_URL', $_ENV['BASE_URL'] ?? 'http://localhost/a/Bienestar/public');
 define('ASSETS_URL', BASE_URL . '/assets');
 
 // Rutas del sistema
@@ -55,6 +55,11 @@ header('X-Frame-Options: SAMEORIGIN');
 header('X-Content-Type-Options: nosniff');
 header('X-XSS-Protection: 1; mode=block');
 
+// Cargar helpers
+require_once __DIR__ . '/../helpers/auth_helper.php';
+require_once __DIR__ . '/../helpers/validation_helper.php';
+require_once __DIR__ . '/../helpers/file_helper.php';
+
 /**
  * Función helper para generar URLs
  */
@@ -69,24 +74,4 @@ function asset($path = '') {
     return ASSETS_URL . '/' . ltrim($path, '/');
 }
 
-/**
- * Verificar si el usuario está autenticado
- */
-function isAuthenticated() {
-    return isset($_SESSION['user_id']);
-}
-
-/**
- * Obtener el usuario actual
- */
-function currentUser() {
-    return $_SESSION['user'] ?? null;
-}
-
-/**
- * Redireccionar
- */
-function redirect($url) {
-    header('Location: ' . $url);
-    exit;
-}
+// FIN DEL ARCHIVO - NO AGREGAR MÁS FUNCIONES AQUÍ

@@ -6,11 +6,8 @@
 /**
  * Verificar si el usuario está autenticado
  */
-function requireAuth() {
-    if (!isAuthenticated()) {
-        redirect('pages/login.php');
-        exit;
-    }
+function isAuthenticated() {
+    return isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
 }
 
 /**
@@ -51,4 +48,29 @@ function getUserEmail() {
  */
 function getUserName() {
     return $_SESSION['user_name'] ?? null;
+}
+
+/**
+ * Obtener usuario actual completo
+ */
+function currentUser() {
+    return $_SESSION['user'] ?? null;
+}
+
+/**
+ * Verificar si el usuario está autenticado
+ */
+function requireAuth() {
+    if (!isAuthenticated()) {
+        redirect('pages/login.php');
+        exit;
+    }
+}
+
+/**
+ * Redireccionar
+ */
+function redirect($url) {
+    header('Location: ' . $url);
+    exit;
 }

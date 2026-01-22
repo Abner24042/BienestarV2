@@ -13,12 +13,12 @@ if (!isset($pageTitle)) {
     
     <!-- Estilos -->
     <link rel="stylesheet" href="<?php echo asset('css/main.css'); ?>">
-    <link rel="stylesheet" href="<?php echo asset('css/dashboard.css'); ?>">
-    <?php if (isset($additionalCSS)): ?>
-        <?php foreach ($additionalCSS as $css): ?>
-            <link rel="stylesheet" href="<?php echo asset("css/{$css}"); ?>">
-        <?php endforeach; ?>
-    <?php endif; ?>
+<link rel="stylesheet" href="<?php echo asset('css/dashboard.css'); ?>">
+<?php if (isset($additionalCSS)): ?>
+    <?php foreach ($additionalCSS as $css): ?>
+        <link rel="stylesheet" href="<?php echo asset('css/' . $css); ?>">
+    <?php endforeach; ?>
+<?php endif; ?>
 </head>
 <body>
     <!-- Header -->
@@ -28,16 +28,16 @@ if (!isset($pageTitle)) {
                 <h2>BIEN<span>IEST</span>AR</h2>
             </div>
             <div class="header-user">
-                <span class="user-name"><?php echo htmlspecialchars(getUserName()); ?></span>
-                <img src="<?php echo currentUser()['foto'] ?? asset('img/icons/default-avatar.png'); ?>" alt="Avatar" class="user-avatar">
-                <div class="user-menu">
-                    <a href="<?php echo url('pages/perfil.php'); ?>">Mi Perfil</a>
-                    <?php if (isAdmin()): ?>
-                        <a href="<?php echo url('pages/admin/dashboard.php'); ?>">Panel Admin</a>
-                    <?php endif; ?>
-                    <a href="<?php echo url('controllers/logout.php'); ?>">Cerrar Sesión</a>
-                </div>
-            </div>
+    <span class="user-name"><?php echo htmlspecialchars($_SESSION['user_name']); ?></span>
+    <img src="<?php echo currentUser()['foto'] ?? asset('img/icons/default-avatar.png'); ?>" alt="Avatar" class="user-avatar">
+    <div class="user-menu">
+        <a href="<?php echo url('public/pages/perfil.php'); ?>">Mi Perfil</a>
+        <?php if (isAdmin()): ?>
+            <a href="<?php echo url('public/pages/admin/dashboard.php'); ?>">Panel Admin</a>
+        <?php endif; ?>
+        <a href="<?php echo url('controllers/logout.php'); ?>">Cerrar Sesión</a>
+    </div>
+</div>
         </div>
     </header>
     
@@ -79,5 +79,8 @@ if (!isset($pageTitle)) {
         </nav>
     </aside>
     
+<!-- Scripts -->
+<script src="<?php echo asset('js/main.js'); ?>"></script>
+
     <!-- Main Content -->
-    <main class="main-content"></main>
+    <main class="main-content">

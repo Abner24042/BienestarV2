@@ -38,7 +38,7 @@ if (isset($_GET['error'])) {
             <?php endif; ?>
 
             <!-- Formulario de Login -->
-            <form id="loginForm" action="../../app/controllers/login.php" method="POST" class="auth-form">
+            <form id="loginForm" action="../../controllers/login.php" method="POST" class="auth-form">
                 <div class="form-group">
                     <label for="correo">Correo Electrónico</label>
                     <input 

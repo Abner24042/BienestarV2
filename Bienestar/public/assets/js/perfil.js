@@ -111,3 +111,101 @@ function handleChangePhoto(e) {
     showLoader();
     this.submit();
 }
+
+/**
+ * Manejo del menú de usuario con delay
+ */
+document.addEventListener('DOMContentLoaded', function() {
+    const headerUser = document.querySelector('.header-user');
+    const userMenu = document.querySelector('.user-menu');
+    
+    if (headerUser && userMenu) {
+        let menuTimeout;
+        
+        // Mostrar menú al hacer hover en el usuario
+        headerUser.addEventListener('mouseenter', function() {
+            clearTimeout(menuTimeout);
+            userMenu.style.display = 'block';
+            setTimeout(() => {
+                userMenu.style.opacity = '1';
+                userMenu.style.transform = 'translateY(0)';
+            }, 10);
+        });
+        
+        // Ocultar menú con delay al salir del usuario
+        headerUser.addEventListener('mouseleave', function() {
+            menuTimeout = setTimeout(() => {
+                userMenu.style.opacity = '0';
+                userMenu.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    userMenu.style.display = 'none';
+                }, 200);
+            }, 300); // 300ms de delay antes de cerrar
+        });
+        
+        // Mantener abierto si el cursor está sobre el menú
+        userMenu.addEventListener('mouseenter', function() {
+            clearTimeout(menuTimeout);
+        });
+        
+        // Cerrar cuando el cursor sale del menú
+        userMenu.addEventListener('mouseleave', function() {
+            menuTimeout = setTimeout(() => {
+                userMenu.style.opacity = '0';
+                userMenu.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    userMenu.style.display = 'none';
+                }, 200);
+            }, 200);
+        });
+    }
+});
+
+/**
+ * Manejo del menú de usuario con delay
+ */
+document.addEventListener('DOMContentLoaded', function() {
+    const headerUser = document.querySelector('.header-user');
+    const userMenu = document.querySelector('.user-menu');
+    
+    if (headerUser && userMenu) {
+        let menuTimeout;
+        
+        // Mostrar menú al hacer hover en el usuario
+        headerUser.addEventListener('mouseenter', function() {
+            clearTimeout(menuTimeout);
+            userMenu.style.display = 'block';
+            setTimeout(() => {
+                userMenu.style.opacity = '1';
+                userMenu.style.transform = 'translateY(0)';
+            }, 10);
+        });
+        
+        // Ocultar menú con delay al salir del usuario
+        headerUser.addEventListener('mouseleave', function() {
+            menuTimeout = setTimeout(() => {
+                userMenu.style.opacity = '0';
+                userMenu.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    userMenu.style.display = 'none';
+                }, 200);
+            }, 300); // 300ms de delay antes de cerrar
+        });
+        
+        // Mantener abierto si el cursor está sobre el menú
+        userMenu.addEventListener('mouseenter', function() {
+            clearTimeout(menuTimeout);
+        });
+        
+        // Cerrar cuando el cursor sale del menú
+        userMenu.addEventListener('mouseleave', function() {
+            menuTimeout = setTimeout(() => {
+                userMenu.style.opacity = '0';
+                userMenu.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    userMenu.style.display = 'none';
+                }, 200);
+            }, 200);
+        });
+    }
+});
